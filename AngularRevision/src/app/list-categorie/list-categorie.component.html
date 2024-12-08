@@ -1,0 +1,19 @@
+
+<input 
+type="text" 
+class="form-control" 
+placeholder="Rechercher une catégorie" 
+[(ngModel)]="searchTitle" />
+<div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let n of filteredCategories()" style="margin-bottom: 20px;">
+        <img [src]="n.image" alt="{{n.title}}" class="img-fluid h-50 w-75" (click)="AfficherDescription(n.description)"/>
+        <h3 (mouseover)="change()" (mouseleave)="reset()" [ngStyle]="{color:attribut}" >{{n.title}}</h3>
+        <div class="" *ngIf="n.available==false">
+            <p>Categorie non disponible</p>
+        </div>
+        <button class="btn btn-primary" *ngIf="n.available==true">Voir produits</button>
+      </div>
+    </div>
+  </div>
+  
